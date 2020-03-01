@@ -8,7 +8,7 @@
  PYLIBROOT= $(EXPORT_TREE)/lib/python
  PYLIBDIR = $(PYLIBROOT)/omniidl_be
 -INSTALLPYLIBDIR = $(INSTALLPYTHONDIR)/omniidl_be
-+INSTALLPYLIBDIR = $(INSTALLLIBDIR)/omniidl/omniidl_be
++INSTALLPYLIBDIR = $(INSTALLPYTHONDIR)/omniidl_be
  
  ifeq ($(PYTHON),)
  PYTHON = python

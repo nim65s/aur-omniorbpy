@@ -1,4 +1,4 @@
-* Install to omniidl_be outside PYTHONPATH
+* ~~Install to omniidl_be outside PYTHONPATH~~
 * Don't overwrite omnidl_be/__init__.py
 * Do not blindly recompile files that belong to middleware/omniORB
 
@@ -8,7 +8,7 @@
  PYLIBROOT= $(EXPORT_TREE)/lib/python
  PYLIBDIR = $(PYLIBROOT)/omniidl_be
 -INSTALLPYLIBDIR = $(INSTALLPYTHONDIR)/omniidl_be
-+INSTALLPYLIBDIR = $(INSTALLLIBDIR)/omniidl/omniidl_be
++INSTALLPYLIBDIR = $(INSTALLPYTHONDIR)/omniidl_be
  
  ifeq ($(PYTHON),)
  PYTHON = python
