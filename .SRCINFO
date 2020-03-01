@@ -7,12 +7,24 @@ pkgbase = omniorbpy
 	arch = x86_64
 	license = LGPL
 	depends = omniorb
-	depends = python2
+	depends = python
 	provides = pyorbit
 	conflicts = omniorbpy-omg
 	conflicts = pyorbit
 	source = http://downloads.sourceforge.net/omniorb/omniORBpy-4.2.3.tar.bz2
+	source = https://raw.githubusercontent.com/nim65s/robotpkg/master/middleware/py-omniORBpy/patches/patch-aa
+	source = https://raw.githubusercontent.com/nim65s/robotpkg/master/middleware/py-omniORBpy/patches/patch-ab
+	source = https://raw.githubusercontent.com/nim65s/robotpkg/master/middleware/py-omniORBpy/patches/patch-ad
+	source = https://raw.githubusercontent.com/nim65s/robotpkg/master/middleware/py-omniORBpy/patches/patch-ae
+	source = https://raw.githubusercontent.com/nim65s/robotpkg/master/middleware/py-omniORBpy/patches/patch-af
+	source = https://raw.githubusercontent.com/nim65s/robotpkg/master/middleware/py-omniORBpy/patches/patch-ag
 	sha256sums = 5c601888e57c7664324357a1be50f2739c468057b46fba29821a25069fc0aee5
+	sha256sums = 32b08d6cece84f72161d6f1eb400b5e3d1994bfb5c6b2af21293ab02f11d7193
+	sha256sums = 8f21b5b54e000aa8baf2a4ec3104526bed0715aed85916e8f7fe1eff91d69e93
+	sha256sums = 5a5b86209126403362e2935feecffc7178bd6921d466b727ed61aeec0567ab76
+	sha256sums = 658d2f59cd2a0e83b43d17c8c6bbf5ab1837de0b2d1ba0cc483acf7bb929862a
+	sha256sums = a22f360f3deb5604fb800e2a4c2c025e4f98f8473415e1da8bd3f85d108f8cb6
+	sha256sums = 199fedb20a7d7e0814145954aa70f6a3527bfacd43fa64079a51de87a618e461
 
 pkgname = omniorbpy
 

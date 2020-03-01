@@ -16,8 +16,26 @@ license=('LGPL')
 depends=('omniorb' 'python')
 conflicts=('omniorbpy-omg' 'pyorbit')
 provides=('pyorbit')
-source=(http://downloads.sourceforge.net/omniorb/omniORBpy-$pkgver.tar.bz2)
-sha256sums=('5c601888e57c7664324357a1be50f2739c468057b46fba29821a25069fc0aee5')
+source=(http://downloads.sourceforge.net/omniorb/omniORBpy-$pkgver.tar.bz2
+https://raw.githubusercontent.com/nim65s/robotpkg/master/middleware/py-omniORBpy/patches/patch-a{a,b,d,e,f,g}
+)
+sha256sums=('5c601888e57c7664324357a1be50f2739c468057b46fba29821a25069fc0aee5'
+'32b08d6cece84f72161d6f1eb400b5e3d1994bfb5c6b2af21293ab02f11d7193'
+'8f21b5b54e000aa8baf2a4ec3104526bed0715aed85916e8f7fe1eff91d69e93'
+'5a5b86209126403362e2935feecffc7178bd6921d466b727ed61aeec0567ab76'
+'658d2f59cd2a0e83b43d17c8c6bbf5ab1837de0b2d1ba0cc483acf7bb929862a'
+'a22f360f3deb5604fb800e2a4c2c025e4f98f8473415e1da8bd3f85d108f8cb6'
+'199fedb20a7d7e0814145954aa70f6a3527bfacd43fa64079a51de87a618e461'
+)
+
+prepare() {
+  # Apply patches from robotpkg
+  cd "$srcdir/omniORBpy-$pkgver"
+  for p in a b d e f g
+  do patch -p0 -i "$srcdir/patch-a$p"
+  done
+}
+
 
 build() {
   cd "$srcdir/omniORBpy-$pkgver"
@@ -28,9 +46,6 @@ build() {
 package() {
   cd "$srcdir/omniORBpy-$pkgver"
   make DESTDIR="$pkgdir" install
-
-  # remove conflicting files
-  rm "$pkgdir"/usr/lib/*/site-packages/omniidl_be/__init__.py*
 
   # adjust directory permissions
   find "$pkgdir" -type d -exec chmod 755 '{}' +
