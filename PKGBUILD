@@ -17,11 +17,9 @@ depends=('omniorb' 'python')
 conflicts=('omniorbpy-omg' 'pyorbit')
 provides=('pyorbit')
 source=(http://downloads.sourceforge.net/omniorb/omniORBpy-$pkgver.tar.bz2
-patch-a{a,b,d,e,f,g}
+patch-a{d,e,f,g}
 )
 sha256sums=('5c601888e57c7664324357a1be50f2739c468057b46fba29821a25069fc0aee5'
-'db5410276801c908eaa37cfffe74c1d7dbf97ccc1cf7368366cbd72341a89996'
-'8f21b5b54e000aa8baf2a4ec3104526bed0715aed85916e8f7fe1eff91d69e93'
 '5a5b86209126403362e2935feecffc7178bd6921d466b727ed61aeec0567ab76'
 '658d2f59cd2a0e83b43d17c8c6bbf5ab1837de0b2d1ba0cc483acf7bb929862a'
 'ca0b6572d9268baab87fa1e75c4705baac468fea4592bdacc446035a55e806b9'
