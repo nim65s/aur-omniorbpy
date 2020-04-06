@@ -1,16 +1,9 @@
-* Install to omniidl_be outside PYTHONPATH
 * Don't overwrite omnidl_be/__init__.py
 * Do not blindly recompile files that belong to middleware/omniORB
 
---- python3/omniidl_be/dir.mk~	2014-07-23 11:19:07.000000000 +0200
-+++ python3/omniidl_be/dir.mk	2019-05-13 14:48:28.637977394 +0200
-@@ -1,20 +1,18 @@
- PYLIBROOT= $(EXPORT_TREE)/lib/python
- PYLIBDIR = $(PYLIBROOT)/omniidl_be
--INSTALLPYLIBDIR = $(INSTALLPYTHONDIR)/omniidl_be
-+INSTALLPYLIBDIR = $(INSTALLPYTHONDIR)/omniidl_be
- 
- ifeq ($(PYTHON),)
+--- python3/omniidl_be/dir.mk.orig	2020-04-06 15:09:36.079382962 +0200
++++ python3/omniidl_be/dir.mk	2020-04-06 15:10:01.759253533 +0200
+@@ -6,15 +6,13 @@
  PYTHON = python
  endif
  
