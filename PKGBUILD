@@ -7,7 +7,7 @@
 # Contributor: mortbauer <mortbauer *at* gmail *dot* com>
 
 pkgname=omniorbpy
-pkgver=4.2.3
+pkgver=4.2.4
 pkgrel=1
 pkgdesc="omniORB is a CORBA object request broker for C++ and Python."
 arch=(i686 x86_64)
@@ -17,19 +17,18 @@ depends=('omniorb' 'python')
 conflicts=('omniorbpy-omg' 'pyorbit')
 provides=('pyorbit')
 source=(http://downloads.sourceforge.net/omniorb/omniORBpy-$pkgver.tar.bz2
-patch-a{d,e,f,g}
+patch-a{d,e,f}
 )
-sha256sums=('5c601888e57c7664324357a1be50f2739c468057b46fba29821a25069fc0aee5'
+sha256sums=('dae8d867559cc934002b756bc01ad7fabbc63f19c2d52f755369989a7a1d27b6'
 '5a5b86209126403362e2935feecffc7178bd6921d466b727ed61aeec0567ab76'
 '658d2f59cd2a0e83b43d17c8c6bbf5ab1837de0b2d1ba0cc483acf7bb929862a'
 'ca0b6572d9268baab87fa1e75c4705baac468fea4592bdacc446035a55e806b9'
-'199fedb20a7d7e0814145954aa70f6a3527bfacd43fa64079a51de87a618e461'
 )
 
 prepare() {
   # Apply patches from robotpkg
   cd "$srcdir/omniORBpy-$pkgver"
-  for p in a b d e f g
+  for p in d e f
   do patch -p0 -i "$srcdir/patch-a$p"
   done
 }

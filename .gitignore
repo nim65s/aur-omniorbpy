@@ -1,2 +1,4 @@
 omniORBpy-*
 *.pkg.*
+pkg
+src
