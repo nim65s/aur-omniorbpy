@@ -7,7 +7,7 @@
 # Contributor: mortbauer <mortbauer *at* gmail *dot* com>
 
 pkgname=omniorbpy
-pkgver=4.2.4
+pkgver=4.3.0
 pkgrel=1
 pkgdesc="A CORBA object request broker for C++ and Python."
 arch=(i686 x86_64)
@@ -15,7 +15,7 @@ url="http://omniorb.sourceforge.net/"
 license=('LGPL')
 depends=('omniorb' 'python')
 source=(http://downloads.sourceforge.net/omniorb/omniORBpy-$pkgver.tar.bz2)
-sha256sums=('dae8d867559cc934002b756bc01ad7fabbc63f19c2d52f755369989a7a1d27b6')
+sha256sums=('fffcfdfc34fd6e2fcc45d803d7d5db5bd4d188a747ff9f82b3684a753e001b4d')
 
 build() {
   cd "$srcdir/omniORBpy-$pkgver"
@@ -25,6 +25,10 @@ build() {
 
 package() {
   cd "$srcdir/omniORBpy-$pkgver"
+
+  # already available in omniORB
+  sed -i 's/omniidl_be//' python3/dir.mk
+
   make DESTDIR="$pkgdir" install
 
   # adjust directory permissions
