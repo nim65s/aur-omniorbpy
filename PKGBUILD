@@ -8,7 +8,7 @@
 
 pkgname=omniorbpy
 pkgver=4.3.0
-pkgrel=1
+pkgrel=2
 pkgdesc="A CORBA object request broker for C++ and Python."
 arch=(i686 x86_64)
 url="http://omniorb.sourceforge.net/"
@@ -27,7 +27,7 @@ package() {
   cd "$srcdir/omniORBpy-$pkgver"
 
   # already available in omniORB
-  sed -i 's/omniidl_be//' python3/dir.mk
+  sed -i 's/__init__.py//;/compileall/d' python3/omniidl_be/dir.mk
 
   make DESTDIR="$pkgdir" install
 
