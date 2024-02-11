@@ -9,7 +9,7 @@ depends=('omniorb' 'python')
 provides=('python-omniorbpy')
 source=(http://downloads.sourceforge.net/omniorb/omniORBpy-$pkgver.tar.bz2)
 sha256sums=('9da34af0a0230ea0de793be73ee66dc8a87e732fec80437ea91222e272d01be2')
- 
+
 build() {
   cd "$srcdir/omniORBpy-$pkgver"
   ./configure PYTHON=/usr/bin/python --prefix=/usr
@@ -21,6 +21,6 @@ package() {
   make DESTDIR="$pkgdir" install
 
   # remove conflicting files
-  rm -r "$pkgdir"/usr/lib/*/site-packages/omniidl_be/
+  rm -r "$pkgdir"/usr/lib/*/site-packages/omniidl_be/__init__.py
+  rm -r "$pkgdir"/usr/lib/*/site-packages/omniidl_be/__pycache__
 }
-
