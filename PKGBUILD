@@ -1,15 +1,15 @@
 pkgname=omniorbpy
-pkgver=4.3.1
+pkgver=4.3.2
 pkgrel=1
 pkgdesc="A CORBA object request broker for C++ and Python."
 arch=(x86_64)
 url="http://omniorb.sourceforge.net/"
-license=('LGPL')
+license=('LGPL-2.0-or-later')
 depends=('omniorb' 'python')
 provides=('python-omniorbpy')
 source=(http://downloads.sourceforge.net/omniorb/omniORBpy-$pkgver.tar.bz2)
-sha256sums=('9da34af0a0230ea0de793be73ee66dc8a87e732fec80437ea91222e272d01be2')
-
+sha256sums=('cb5717d412a101baf430f598cac7d69231884dae4372d8e2adf3ddeebc5f7ebb')
+ 
 build() {
   cd "$srcdir/omniORBpy-$pkgver"
   ./configure PYTHON=/usr/bin/python --prefix=/usr
@@ -20,7 +20,8 @@ package() {
   cd "$srcdir/omniORBpy-$pkgver"
   make DESTDIR="$pkgdir" install
 
-  # remove conflicting files
-  rm -r "$pkgdir"/usr/lib/*/site-packages/omniidl_be/__init__.py
-  rm -r "$pkgdir"/usr/lib/*/site-packages/omniidl_be/__pycache__
+  # remove conflicting files from omniorb package
+  rm "$pkgdir"/usr/lib/*/site-packages/omniidl_be/__init__.py
+  rm "$pkgdir"/usr/lib/*/site-packages/omniidl_be/__pycache__/__init__.*
 }
+
